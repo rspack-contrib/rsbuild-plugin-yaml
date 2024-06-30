@@ -1,6 +1,8 @@
 # @rsbuild/plugin-yaml
 
-@rsbuild/plugin-yaml is a Rsbuild plugin to do something.
+Import YAML files and convert them into JavaScript objects.
+
+> [YAML](https://yaml.org/) is a data serialization language commonly used for writing configuration files.
 
 <p>
   <a href="https://npmjs.com/package/@rsbuild/plugin-yaml">
@@ -28,20 +30,39 @@ export default {
 };
 ```
 
-## Options
+## Example
 
-### foo
+Suppose the project has the following code in `example.yaml`:
 
-Some description.
+```yaml title="example.yaml"
+hello = "world"
 
-- Type: `string`
-- Default: `undefined`
-- Example:
+[foo]
+bar = "baz"
+```
+
+After using the YAML plugin, you can reference it as follows:
 
 ```js
-pluginYaml({
-  foo: "bar",
-});
+import example from "./example.yaml";
+
+console.log(example.hello); // 'world';
+console.log(example.foo); // { bar: 'baz' };
+```
+
+## Type Declaration
+
+When you import YAML files in TypeScript code, please create a `src/env.d.ts` file in your project and add the corresponding type declarations.
+
+```ts
+declare module "*.yml" {
+  const content: Record<string, any>;
+  export default content;
+}
+declare module "*.yaml" {
+  const content: Record<string, any>;
+  export default content;
+}
 ```
 
 ## License
