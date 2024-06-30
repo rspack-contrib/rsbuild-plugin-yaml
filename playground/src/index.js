@@ -1,8 +1,7 @@
-import './index.css';
+import a from './a.yaml';
+import b from './b.yaml';
 
-document.querySelector('#root').innerHTML = `
-<div class="content">
-  <h1>Vanilla Rsbuild</h1>
-  <p>Start building amazing things with Rsbuild.</p>
-</div>
-`;
+window.age = a.age;
+window.b = JSON.stringify(b);
+
+console.log(age, b);

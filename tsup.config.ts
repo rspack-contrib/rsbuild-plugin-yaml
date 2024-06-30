@@ -7,4 +7,5 @@ export default defineConfig({
 	dts: true,
 	clean: true,
 	shims: true,
+	external: ['yaml-loader'],
 });

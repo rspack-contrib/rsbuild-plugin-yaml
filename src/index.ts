@@ -1,16 +1,19 @@
+import { join } from 'node:path';
 import type { RsbuildPlugin } from '@rsbuild/core';
 
-export type PluginExampleOptions = {
-	foo?: string;
-	bar?: boolean;
-};
+export const PLUGIN_YAML_NAME = 'rsbuild:yaml';
 
-export const pluginExample = (
-	options: PluginExampleOptions = {},
-): RsbuildPlugin => ({
-	name: 'plugin-example',
+export const pluginYaml = (): RsbuildPlugin => ({
+	name: PLUGIN_YAML_NAME,
 
-	setup() {
-		console.log('Hello Rsbuild!', options);
+	setup(api) {
+		api.modifyBundlerChain((chain, { CHAIN_ID }) => {
+			chain.module
+				.rule(CHAIN_ID.RULE.YAML)
+				.type('javascript/auto')
+				.test(/\.ya?ml$/)
+				.use(CHAIN_ID.USE.YAML)
+				.loader(join(__dirname, '../compiled', 'yaml-loader'));
+		});
 	},
 });

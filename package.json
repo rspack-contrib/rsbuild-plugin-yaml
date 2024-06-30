@@ -1,5 +1,5 @@
 {
-	"name": "rsbuild-plugin-example",
+	"name": "@rsbuild/plugin-yaml",
 	"version": "0.0.0",
 	"repository": "https://github.com/rspack-contrib/rsbuild-plugin-template",
 	"license": "MIT",
@@ -14,9 +14,9 @@
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",
 	"types": "./dist/index.d.ts",
-	"files": ["dist"],
+	"files": ["dist", "compiled"],
 	"scripts": {
-		"build": "tsup",
+		"build": "tsup && prebundle",
 		"dev": "tsup --watch",
 		"lint": "biome check .",
 		"lint:write": "biome check . --write",
@@ -38,9 +38,11 @@
 		"@types/node": "^20.14.1",
 		"nano-staged": "^0.8.0",
 		"playwright": "^1.44.1",
+		"prebundle": "^1.1.0",
 		"simple-git-hooks": "^2.11.1",
 		"tsup": "^8.0.2",
-		"typescript": "^5.5.2"
+		"typescript": "^5.5.2",
+		"yaml-loader": "^0.8.1"
 	},
 	"peerDependencies": {
 		"@rsbuild/core": "0.x || 1.x"
