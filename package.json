@@ -1,6 +1,6 @@
 {
 	"name": "@rsbuild/plugin-yaml",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"repository": "https://github.com/rspack-contrib/rsbuild-plugin-yaml",
 	"license": "MIT",
 	"type": "module",
