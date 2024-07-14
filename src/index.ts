@@ -7,12 +7,12 @@ export const pluginYaml = (): RsbuildPlugin => ({
 	name: PLUGIN_YAML_NAME,
 
 	setup(api) {
-		api.modifyBundlerChain((chain, { CHAIN_ID }) => {
+		api.modifyBundlerChain((chain) => {
 			chain.module
-				.rule(CHAIN_ID.RULE.YAML)
+				.rule('yaml')
 				.type('javascript/auto')
 				.test(/\.ya?ml$/)
-				.use(CHAIN_ID.USE.YAML)
+				.use('yaml')
 				.loader(join(__dirname, '../compiled', 'yaml-loader'));
 		});
 	},
