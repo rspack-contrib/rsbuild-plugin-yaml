@@ -1,5 +1,9 @@
 import { join } from 'node:path';
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import type { RsbuildPlugin } from '@rsbuild/core';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export const PLUGIN_YAML_NAME = 'rsbuild:yaml';
 
