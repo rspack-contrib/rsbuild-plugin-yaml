@@ -4,4 +4,4 @@ import b from './b.yaml';
 window.age = a.age;
 window.b = JSON.stringify(b);
 
-console.log(age, b);
+console.log(a.age, b);
