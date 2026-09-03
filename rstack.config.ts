@@ -10,9 +10,6 @@ define.lib({
       loader: './src/loader.ts',
     },
   },
-  output: {
-    externals: ['yaml'],
-  },
 });
 
 define.test({
